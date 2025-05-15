@@ -94,7 +94,8 @@
         "collection_KeikAj": {
           "type": "collection",
           "settings": {
-            "collection": "",
+            "collection": "travel-cases",
+            "image": "shopify://shop_images/2N5A8293.jpg",
             "heading": ""
           }
         },
