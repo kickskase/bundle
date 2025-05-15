@@ -72,6 +72,62 @@
         "custom_css": ""
       }
     },
+    "static_collection_list_nntc8U": {
+      "type": "static-collection-list",
+      "blocks": {
+        "collection_TARVjU": {
+          "type": "collection",
+          "settings": {
+            "collection": "originals",
+            "image": "shopify://shop_images/5_0e02fcfe-039a-4f28-9756-88497d1b49a5.jpg",
+            "heading": ""
+          }
+        },
+        "collection_xCiqfN": {
+          "type": "collection",
+          "settings": {
+            "collection": "backpacks",
+            "image": "shopify://shop_images/PhotoMar032025_44731PM_4.jpg",
+            "heading": ""
+          }
+        },
+        "collection_KeikAj": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "heading": ""
+          }
+        },
+        "collection_FndV6R": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "heading": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_TARVjU",
+        "collection_xCiqfN",
+        "collection_KeikAj",
+        "collection_FndV6R"
+      ],
+      "name": "Static Collection list",
+      "settings": {
+        "section_heading": "Collection list",
+        "section_heading_size": 40,
+        "desktop_columns": 4,
+        "content_alignment": "center",
+        "heading_size": 20,
+        "image_crop": "circle",
+        "text_color": "#000000",
+        "background_color": "#FFFFFF",
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "margin_top": 64,
+        "margin_bottom": 64
+      }
+    },
     "pxu_collection_list_6MYc76": {
       "type": "pxu-collection-list",
       "blocks": {
@@ -126,7 +182,7 @@
         "image_crop": "circle",
         "mobile_columns": 2,
         "text_color": "#000000",
-        "background_color": "#FFFFFF",
+        "background_color": "#ffffff",
         "enable_animations": true,
         "padding_top": 32,
         "padding_bottom": 32,
@@ -604,6 +660,7 @@
   "order": [
     "index_html_Qme7Nm",
     "16116130705f391e7b",
+    "static_collection_list_nntc8U",
     "pxu_collection_list_6MYc76",
     "index_featured_collection_hRUEhX",
     "index_image_with_text_AKeejq",
