@@ -325,86 +325,11 @@ max-width: 360px !important;
 }
 </style>
   <script async type="text/javascript" src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=Yc3GGc"></script>
-  <script>(function(n, v) {/* eslint-disable-next-line max-len */if (window.Shopify && window.Shopify.theme && navigator && navigator.sendBeacon && window.Shopify.designMode) {if (sessionStorage.getItem('oots_beacon')) return;navigator.sendBeacon('https://app.outofthesandbox.com/beacon', new URLSearchParams({shop_domain: window.Shopify.shop.toLowerCase(),shop_id: window.BOOMR.shopId,shop_email: '{{ shop.email }}',theme_name: n.toLowerCase(),theme_version: v.toLowerCase(),theme_store_id: window.Shopify.theme.theme_store_id,theme_id: window.Shopify.theme.id,theme_role: window.Shopify.theme.role,}));sessionStorage.setItem('oots_beacon', '');}}('Flex','5.2.1'))</script></body>
+  <script>(function(n, v) {/* eslint-disable-next-line max-len */if (window.Shopify && window.Shopify.theme && navigator && navigator.sendBeacon && window.Shopify.designMode) {if (sessionStorage.getItem('oots_beacon')) return;navigator.sendBeacon('https://app.outofthesandbox.com/beacon', new URLSearchParams({shop_domain: window.Shopify.shop.toLowerCase(),shop_id: window.BOOMR.shopId,shop_email: '{{ shop.email }}',theme_name: n.toLowerCase(),theme_version: v.toLowerCase(),theme_store_id: window.Shopify.theme.theme_store_id,theme_id: window.Shopify.theme.id,theme_role: window.Shopify.theme.role,}));sessionStorage.setItem('oots_beacon', '');}}('Flex','5.2.1'))</script>
+  {{ 'theme.js' | asset_url | script_tag }}
+  {{ 'variant-image-fix.js' | asset_url | script_tag }}
+</body>
 </html>
 {% endcapture %}
 {% assign content = content | replace_first: '<!doctype', '!doctype' | split: ' <' %}
 {%- for html in content -%}{%- assign htmlblock = html | strip | prepend: ' <' -%}{{htmlblock | replace: ' </', '</'}}{%- endfor -%}
-
-
-  <script>
-    document.addEventListener('click', async function (event) {
-      const bundleButton = event.target.closest('[data-bundle-checkout]');
-      if (!bundleButton) return;
-    
-      event.preventDefault();
-      event.stopPropagation();
-    
-      bundleButton.disabled = true;
-      bundleButton.innerHTML = 'Creating bundle...';
-      bundleButton.classList.add('bundle-loading');
-    
-      try {
-        const cart = await fetch('/cart.js').then(res => res.json());
-    
-        const bundleItems = cart.items.filter(item =>
-          item.properties && item.properties._bundleTrue === 'bundle'
-        );
-    
-        if (!bundleItems.length) {
-          window.location.href = '/checkout';
-          return;
-        }
-    
-        const createdVariantIds = [];
-    
-        for (const item of bundleItems) {
-          const productIdList = item.properties?._bundleProductsIds?.split(',') || [];
-          const bundleId = item.properties?._bundleId || '';
-          const colorList = item.properties?._bundleOptionsIds?.split(',') || [];
-    
-          const query = new URLSearchParams({
-            productId: productIdList.join(','),
-            bundleId: bundleId,
-            color: colorList.join(',')
-          });
-    
-          const requestUrl = `https://reliable-build-56fxk.ampt.app/test-bundle?${query.toString()}`;
-          console.log('📦 Sending GET request to backend:', requestUrl);
-    
-          const response = await fetch(requestUrl);
-          const data = await response.json();
-          console.log('✅ Backend responded:', data);
-    
-          const variantGid = data.variantId;
-          const variantId = variantGid.split('/').pop();
-          createdVariantIds.push(variantId);
-        }
-    
-        // Удаляем все старые бандлы
-        for (const item of bundleItems) {
-          await fetch('/cart/change.js', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ id: item.key, quantity: 0 })
-          });
-        }
-    
-        // Добавляем все созданные товары
-        for (const id of createdVariantIds) {
-          await fetch('/cart/add.js', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ id: id, quantity: 1 })
-          });
-        }
-    
-        window.location.href = '/checkout';
-    
-      } catch (error) {
-        console.error('❌ Error during bundle checkout handling:', error);
-        window.location.href = '/checkout';
-      }
-    });       
-
-  </script>

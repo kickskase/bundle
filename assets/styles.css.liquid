@@ -625,7 +625,7 @@ https://github.com/vb/lazyframe
   left: 50%;
   top: 50%;
   z-index: 4;
-  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMzYiIGhlaWdodD0iMTM2IiB2aWV3Qm94PSIwIDAgMTM2IDEzNiI+PHBhdGggZmlsbD0iI0ZGRiIgZD0iTTU2IDQ0Yy0uNyAwLTEuNC4yLTIgLjUtMS4yLjgtMiAyLTIgMy41djQwYzAgMS40LjggMi44IDIgMy41LjYuMyAxLjMuNSAyIC41czEuNC0uMiAyLS41bDM0LjYtMjBjMS4zLS43IDItMiAyLTMuNSAwLTEuNC0uNy0yLjgtMi0zLjVMNTggNDQuNWMtLjYtLjMtMS4zLS41LTItLjV6Ii8+PC9zdmc+");
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMzYiIGhlaWdodD0iMTM2IiB2aWV3Qm94PSIwIDAgMTM2IDEzNiI+PHBhdGggZmlsbD0iI0ZGRiIgZD0iTTU2IDQ0Yy0uNyAwLTEuNC4yLTIgLjUtMS4yLjgtMiAyLTIgMy41djQwYzAgMS40LjggMiAyIDMuNSAxLjMuNSAyIC41czEuNC0uMiAyLS41bDM0LjYtMjBjMS4zLS43IDItMiAyLTMuNSAwLTEuNC0uNy0yLjgtMi0zLjVMNTggNDQuNWMtLjYtLjMtMS4zLS41LTItLjV6Ii8+PC9zdmc+");
   background-color: rgba(0, 0, 0, 0.5);
   background-size: cover;
   background-repeat: no-repeat;
@@ -794,19 +794,6 @@ https://github.com/vb/lazyframe
 
 .plyr__control:focus {
   outline: 0;
-}
-
-.plyr__control.plyr__tab-focus {
-  box-shadow: 0 0 0 5px rgba(0, 179, 255, 0.5);
-  outline: 0;
-}
-
-a.plyr__control {
-  text-decoration: none;
-}
-
-a.plyr__control::after, a.plyr__control::before {
-  display: none;
 }
 
 .plyr__control.plyr__control--pressed .icon--not-pressed, .plyr__control.plyr__control--pressed .label--not-pressed, .plyr__control:not(.plyr__control--pressed) .icon--pressed, .plyr__control:not(.plyr__control--pressed) .label--pressed {
@@ -12833,9 +12820,9 @@ shopify-payment-terms {
 }
 
 .swatch .color label {
-  min-width: 34px;
-  height: 34px !important;
-  line-height: 34px;
+  min-width: 68px;
+  height: 68px !important;
+  line-height: 68px;
   background-position: center;
   background-size: cover;
 }
@@ -12843,8 +12830,8 @@ shopify-payment-terms {
 .swatch-element {
   display: flex;
   border: #e2e2e2 thin solid;
-  min-width: 40px;
-  min-height: 40px;
+  min-width: 80px;
+  min-height: 80px;
 }
 {%- if settings.swatch_style != 'square' -%}
 .swatch-element {
@@ -12870,8 +12857,8 @@ shopify-payment-terms {
 .swatch-element.color label {
   padding: 0;
   margin: 0;
-  width: 34px;
-  height: 34px;
+  width: 68px;
+  height: 68px;
   overflow: hidden;
 }
 
@@ -17285,8 +17272,8 @@ h1.header__logo-text > a:hover,
   -webkit-appearance: none;
           appearance: none;
   box-sizing: border-box;
-  width: 20px;
-  height: 20px;
+  width: 136px;
+  height: 136px;
   display: inline-block;
   position: relative;
   vertical-align: top;
@@ -17308,7 +17295,7 @@ h1.header__logo-text > a:hover,
   -webkit-appearance: none;
           appearance: none;
   width: 100%;
-  height: 20px;
+  height: 136px;
   cursor: pointer;
   background-position: center;
   background-size: cover;
@@ -18823,7 +18810,9 @@ ul.faceted-filter-group-display__list {
   }
 }
 @media only screen and (max-width: 798px) {
-  .cart__shipping-calculator .cart__shipping-calculator-form .select, .cart__shipping-calculator .cart__shipping-calculator-form .age-gate__select-wrapper {
+  .cart__shipping-calculator .cart__shipping-calculator-form .select, .cart__shipping-calculator .cart__shipping-calculator-form .age-gate__select-wrapper,
+  .cart__shipping-calculator .cart__shipping-calculator-form select,
+  .cart__shipping-calculator .cart__shipping-calculator-form input {
     width: 100%;
   }
 }
